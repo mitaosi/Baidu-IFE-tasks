@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes;">
+    <!-- 搜索引擎抓取 -->
+    <meta name="robots" content="index,follow"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- fuck Baidu -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" /> 
+    <!-- Use lastest version of Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+     <!-- 禁止数字识自动别为电话号码 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- 是否启用 WebApp 全屏模式 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置状态栏的背景颜色，只有在 `"apple-mobile-web-app-capable" content="yes"` 时生效 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> 
+    <script src="mobile-util.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Ife_Task11</title>
+</head>
+<body>
+    <header>
+        <a href="#"><img src="images/back.png">返回</a>
+        <h1 id="title">这是标题</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li>导航</li>
+            <li class="nav_active">导航</li>
+            <li>导航</li>
+            <li>导航</li>
+            <li>导航</li>
+        </ul>
+    </nav>
+
+    <section id="image">
+        <img src="images/bear.png" alt="bear">
+    </section>
+
+    <section id="tab">
+        <ul>
+            <li><span><img src="images/text.png" alt="text" /></span><aside>标签</aside></li>
+			<li><span><img src="images/text.png" alt="text" /></span><aside>标签</aside></li>
+			<li><span><img src="images/text.png" alt="text" /></span><aside>标签</aside></li>
+			<li><span><img src="images/text.png" alt="text" /></span><aside>标签</aside></li>
+			<li><span><img src="images/text.png" alt="text" /></span><aside>标签</aside></li>
+        </ul>
+    </section>
+
+    <section id="sub">
+            <ul>
+                <li>
+                    <img src="images/sub-1.png" alt="sub-1">
+                    <aside>
+                        <h2>分栏一</h2>
+                        <h3>分栏小标题</h3>
+                    </aside>
+                </li>
+                <li>
+                    <img src="images/sub-2.png" alt="sub-2">
+                    <aside>
+                        <h2>分栏二</h2>
+                        <h3>分栏小标题</h3>
+                    </aside>
+                </li>
+                <li>
+                    <img src="images/sub-3.png" alt="sub-3">
+                    <aside>
+                        <h2>分栏三</h2>
+                        <h3>分栏小标题</h3>
+                    </aside>
+                </li>                
+            </ul>
+    </section>
+
+    <section class="module">
+            <h2>模块一</h2>
+            <hr>
+            <ul class="module_content">
+                <li class="head_img"><img src="images/head.png" alt="head"></li>
+                <li>
+                    <div class="text">这是文案</div>
+                    <div class="text">这是文案</div>
+                </li>
+                <li>
+                    <div class="text">这是文案</div>
+                    <div class="text">这是文案</div>
+                </li>
+            </ul>
+
+            <ul>
+                <ul class="module_content">
+                    <li class="head_img"><img src="images/head.png" alt="head"></li>
+                    <li>
+                        <div class="text">这是文案</div>
+                        <div class="text">这是文案</div>
+                    </li>
+                    <li>
+                        <div class="text">这是文案</div>
+                        <div class="text">这是文案</div>
+                    </li>
+                </ul>
+            </ul>
+    </section>
+    <section class="module">
+		<h2>模块二</h2>
+		<hr>
+		<ul class="module_content">
+			<li class="head_img"><img src="images/head.png" alt="head"></li>
+			<li>
+				<div class="text">这是文案</div>
+				<div class="text">这是文案</div>
+			</li>
+			<li>
+				<div class="text">这是文案</div>
+				<div class="text">这是文案</div>
+			</li>
+		</ul>
+		<ul class="module_content">
+			<li class="head_img"><img src="images/head.png" alt="head"></li>
+			<li>
+				<div class="text">这是文案</div>
+				<div class="text">这是文案</div>
+			</li>
+			<li>
+				<div class="text">这是文案</div>
+				<div class="text">这是文案</div>
+			</li>
+		</ul>
+	</section>
+
+    <section id="article">
+        <div class="article_item">
+            <img src="images/bear-1.png" alt="bear"/>
+            <aside>
+                <h3>这是文章标题字号为11的文章标题</h3>
+                <time>文章来源  5分钟前</time>
+            </aside>    
+        </div>
+        <div class="article_item">
+            <img src="images/bear-1.png" alt="bear"/>
+            <aside>
+                <h3>这是另一个文章标题</h3>
+                <time>文章来源  3分钟前</time>
+            </aside>    
+        </div> 
+        <div class="article_item">
+			<aside>
+				<h3>这个也是文章标题字号为22的文章标题</h3>
+				<div class="img_group">
+					<img src="images/bear-1.png" alt="bear" />
+					<img src="images/bear-1.png" alt="bear" />
+					<img src="images/bear-1.png" alt="bear" />
+				</div>
+				<time>文章来源  7分钟前</time>
+			</aside>
+		</div>                   
+    </section>
+</body>
+</html>
