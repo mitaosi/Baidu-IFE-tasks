@@ -44,6 +44,8 @@ body{
     margin-right: 140px;
     background: #fff;
     border:1px solid #999;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .right{
@@ -60,7 +62,6 @@ body{
     font-family:'Microsoft YaHei';
     background:#dedede;
 }
-
 
 
 footer{

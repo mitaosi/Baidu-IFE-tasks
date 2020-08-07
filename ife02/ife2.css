@@ -1,13 +1,24 @@
 *{
     margin:0;padding:0;
 }
+
 body{
     font-family:'Microsoft YaHei';
     background:#dedede;
 }
 
+main{
+    margin-top: 80px;
+    /*80px是离屏幕顶部的距离，为了留空间给header*/
+}
+
 header{
-    position:relative;
+    width: 100%;
+    /* 必须把width设置为100%否则顶部header不可见 */
+    overflow: hidden;
+    position:fixed;
+    top:0;
+    /*如果不设置top距离，css会默认把header放到屏幕顶部下方大约200px的位置，很坑！*/
     height:60px;
     background:#333;
 }

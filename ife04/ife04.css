@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#main{
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    background-color: #cccccc;
+    top: 50%;
+    left: 50%;
+    margin: -100px -200px;
+}
+/*下面用CSS的#和.分别测试不同的id和class分组选择器*/
+div#top-left{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: #fcba03;
+    /* border-radius:top-left、top-right、bottom-right、bottom-left*/
+    border-radius: 0 0 100% 0;
+    -webkit-border-radius: 0 0 100% 0;
+    -moz-border-radius: 0 0 100% 0;
+    -ms-border-radius: 0 0 100% 0;
+    -o-border-radius: 0 0 100% 0;
+}
+div.bottom-right{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: #fcba03;
+    /*下面两行定义此div与容器的右边和底部的距离，与absolute position结合借此把这个div放在容器的右下角*/
+    right:0;
+    bottom: 0;
+    border-radius: 100% 0 0 0;
+    -webkit-border-radius: 100% 0 0 0;
+    -moz-border-radius: 100% 0 0 0;
+    -ms-border-radius: 100% 0 0 0;
+    -o-border-radius: 100% 0 0 0;
+}
