@@ -3,7 +3,7 @@ window.mobileUtil = (function(win, doc) {
 		isAndroid = /android|adr/gi.test(UA),
 		isIos = /iphone|ipod|ipad/gi.test(UA) && !isAndroid, // 据说某些国产机的UA会同时包含 android iphone 字符
 		isMobile = isAndroid || isIos;  // 粗略的判断
-	return {
+	  return {
 		isAndroid: isAndroid,
 		isIos: isIos,
 		isMobile: isMobile,
