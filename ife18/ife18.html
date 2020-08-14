@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFE TASK18</title>
+    <style>
+        #container div{
+            display: inline-block;
+            text-align: center;
+            font-size: 30px;
+            padding: 0 10px;
+            margin: 2px 0;
+            margin-right: 5px;
+            height: 50px;
+            line-height: 50px;
+            background-color: cadetblue;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <input type="text" id="num-input" name="number" required minlength="4" maxlength="8" size="10">
+        <button id="left-in">左侧入</button>
+        <button id="right-in">右侧入</button>
+        <span>-------</span>
+        <button id="left-out">左侧出</button>
+        <button id="right-out">右侧出</button>
+    </main>
+    <div id="container">
+        <!-- <div>99</div>
+        <div>100</div> -->
+    </div>
+
+    <script>
+        var queue = [];
+        var container = document.getElementById("container");
+        var leftIn = document.getElementById("left-in");
+        var rightIn = document.getElementById("right-in");
+        var leftOut = document.getElementById("left-out");
+        var rightOut = document.getElementById("right-out");
+
+        /*addEvent*/
+        function addEvent(elm,type,handler){
+        if(!elm) return false;
+        if(elm.addEventListener){
+            elm.addEventListener(type,handler,false);
+            return true;
+        }else if(elm.attachEvent){
+            elm.attachEvent('on'+type,function(){handler.apply(elm)});
+            return true;
+        }
+        return false;
+        }
+        //神来之笔，map和join还能这么用！
+        function renderQueue(){
+            var container = document.getElementById("container");
+            container.innerHTML =
+            queue.map(function(d) { return "<div>" + d + "</div>"; }).join('');
+        }
+
+        function validate(str) {
+            return /^\d+$/.test(str);
+        }
+
+        function addLeft(){
+            let num = document.getElementById("num-input").value;
+            if (!validate(num)){
+                alert('input error');
+            } else{
+                queue.unshift(num);
+                renderQueue();
+            }
+        
+        }
+
+        function addRight(){
+            let num = document.getElementById("num-input").value;
+            if (!validate(num)){
+                alert('input error');
+            } else{
+                queue.push(num);
+                renderQueue();
+            }
+
+        }
+
+        function deleteLeft(){
+            var shifted = queue.shift();
+            window.alert(shifted);
+            renderQueue();
+        }
+
+        function deleteRight(){
+            var poped = queue.pop();
+            window.alert(poped);
+            renderQueue();
+        }
+
+        function init(){
+            addEvent(leftIn,"click",addLeft);
+            addEvent(rightIn,"click",addRight);
+            addEvent(leftOut,"click",deleteLeft);
+            addEvent(rightOut,"click",deleteRight);
+        }
+        init();
+    </script>
+</body>
+</html>
