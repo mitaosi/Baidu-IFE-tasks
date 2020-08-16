@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFE TASK18</title>
+    <style>
+        main{
+            width: 400px;
+            margin:40px auto;
+            padding: 15px;
+            border:3px solid grey;
+            border-radius: 5px;
+        }
+
+        main textarea{
+            width: 390px;
+            height: 100px;
+            border: 2px solid grey;
+            border-radius:5px;
+        }
+
+        main input{
+            flex: 1 1 auto;
+            height: 24px;
+            width: 210px;
+            margin-right: 20px;
+            background: transparent;
+            border: 2px solid grey;
+            border-radius: 5px;
+        }
+        main button{
+            flex: 1 1 auto;
+            height: 30px;
+            margin:5px 20px;
+            background: transparent;
+            border-radius:5px;
+        }
+        #clearBtn{
+            width:10px;
+        }
+        #confirmBtn{
+            width: 140px;
+
+        }
+
+        #container{
+            display:flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #container div{
+            display: inline-block;
+            text-align: center;
+            font-size: 30px;
+            padding: 0 10px;
+            margin: 2px 0;
+            margin-right: 5px;
+            height: 50px;
+            line-height: 50px;
+            background-color: cadetblue;
+            color: #ffffff;
+        }
+        #tag-list div{
+            display: inline-block;
+            text-align: center;
+            font-size: 30px;
+            padding: 0 10px;
+            margin: 2px 0;
+            margin-right: 5px;
+            height: 50px;
+            line-height: 50px;
+            background-color: goldenrod;
+            color: black;
+            border-radius: 50px;
+        }
+
+        .tag-area{
+            display: flex;
+            justify-content: center;
+        }
+        .tag-area p{
+            margin: 5px 10px 20px 0;
+        }
+
+        .button-area{
+            display: flex;
+            justify-content: center;
+        }
+
+        .select {
+            color: black;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="tag-area">
+            <p>Tag: </p>
+            <input type="text" id="tag">
+        </div>
+        <div id="tag-list">
+
+        </div>
+
+        <textarea id="input"></textarea>   
+
+        <div class="button-area">
+            <button id="clear-button">清除</button>
+            <button id="confirm-button">确认兴趣爱好</button>
+        </div>
+        
+        <div id="container">
+            <!-- <div>99</div>
+            <div>100</div> -->
+        </div>
+    
+    </main>
+
+    <script>
+        var queue = [];
+        var tarArr = [];
+        var container = document.getElementById("container");
+        var confirmBtn = document.getElementById("confirm-button");
+        var clearBtn = document.getElementById("clear-button");
+        /*addEvent*/
+        function addEvent(elm,type,handler){
+        if(!elm) return false;
+        if(elm.addEventListener){
+            elm.addEventListener(type,handler,false);
+            return true;
+        }else if(elm.attachEvent){
+            elm.attachEvent('on'+type,function(){handler.apply(elm)});
+            return true;
+        }
+        return false;
+        }
+        //神来之笔，map和join还能这么用！
+        function render(str,arr){
+            var container = document.getElementById(str);
+            container.innerHTML =
+            arr.map(function(d) { return "<div>" + d + "</div>"; }).join('');
+        }
+
+        function getInput(id) {
+            let input = document.getElementById(id).value.trim().split(/[^\u4e00-\u9fa5\w]+/g).filter(function(e) {
+                return e.length !== 0; }).slice(0,10);
+            let arr = Array.from(new Set(input));    
+            return arr;
+        }
+
+        function addTag(){
+            document.body.onkeyup = function(e){
+                if(e.keyCode == 32){
+                    let newTag = getInput("tag");
+                    tarArr.push(newTag);
+                    render("tag-list",tarArr);
+                    document.getElementById("tag").value = "";
+                }
+            }
+
+        }
+
+        function addHobby(){
+            let inputArr = getInput("input");
+            if (inputArr.length === 0 ) {
+                alert("请输入任意有效字符。");
+                return;
+            }
+            queue = queue.concat(inputArr);
+            render("container",queue);
+        }
+
+        function clear(x) {
+            document.querySelector("#input").value ="";
+            queue = [];
+            render();
+        }
+
+        function init(){
+            addEvent(confirmBtn,"click",addHobby);
+            addEvent(clearBtn,"click",clear);
+            addTag();
+            document.querySelector("#input").value = "HTML,CSS、JavaScript，前端 fornt-end jQuery   Bootatrap Gulp";
+        }
+        init();
+    </script>
+</body>
+</html>
