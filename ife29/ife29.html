@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFE Task29</title>
+    <style>
+        main{
+            position: relative;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            width: 720px;
+            height: 100px;
+            margin: 50px auto;
+        }
+        main p{
+            font-size: 24px;
+            margin: 0 2px;
+        }
+        main label{
+            color: #ccc;
+            font-size: 20px;
+            margin-top:45px;
+            position: absolute;
+            left: 230px;
+            bottom: 25px;
+        }
+        #text-input{
+            height: 34px;
+            width: 220px;
+            margin: 0 20px;
+            border-radius: 5px;
+        }
+        #submit{
+            height: 40px;
+            width: 80px;
+            font-size: 22px;
+            color: azure;
+            background-color: #2563AD;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <p>名称</p>
+        <label for="text-input">必填，长度为4~16个字符</label>
+        <input type="text" name="input" id="text-input">
+        <button id="submit">验证</button>
+    </main>
+    <script>
+        var input = document.getElementById("text-input");
+        var tip = document.querySelector("label");
+        document.getElementById("submit").onclick = getInput;
+
+         function getInput(){
+            var inputValue = input.value.trim();
+            var length = inputValue.length;
+            if(length===0){
+                tip.innerHTML = "输入值不能为空";
+                tip.style.color = "red";
+            }else if(length>16){
+                tip.innerHTML = "请输入长度为4～16位的字符";
+                tip.style.color = "red";
+            }else{
+                tip.innerHTML = "格式正确";
+                tip.style.color = "blue";
+            }
+        }
+    </script>
+</body>
+</html>
